@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Uno Capture</string>
+
+    <string name="error_camera_access">Could not access Camera</string>
+    <string name="error_camera_not_available">There is no Camera available on this device</string>
+    <string name="error_camera_not_supported">This Camera is not supported on this device</string>
+    <string name="error_permission_required">Please enable the required permissions to continue</string>
+    <string name="error_camera_permission_required">You need to enable CAMERA permissions to continue</string>
+    <string name="error_record_audio_permission_required">You need to enable RECORD_AUDIO permissions to continue</string>
+    <string name="error_write_file_storage_permission_required">You need to enable WRITE_FILE_STORAGE permissions to continue</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
