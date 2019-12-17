@@ -705,6 +705,7 @@ public class CameraFragment extends Fragment implements ImageButton.OnClickListe
                 switch(settings.getFlashMode()) {
                     case FlashMode.FLASH_MODE_OFF:
                         mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CameraMetadata.CONTROL_AE_MODE_ON_ALWAYS_FLASH);
+                        mPreviewRequestBuilder.set(CaptureRequest.FLASH_MODE, CameraMetadata.FLASH_MODE_SINGLE);
 
                         flashView.setImageResource(R.drawable.ic_flash_on_white_24dp);
                         ImageViewCompat.setImageTintList(flashView, ColorStateList.valueOf(ContextCompat.getColor(context, R.color.white)));
@@ -713,6 +714,7 @@ public class CameraFragment extends Fragment implements ImageButton.OnClickListe
 
                     case FlashMode.FLASH_MODE_ON:
                         mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CameraMetadata.CONTROL_AE_MODE_ON_AUTO_FLASH);
+                        mPreviewRequestBuilder.set(CaptureRequest.FLASH_MODE, CameraMetadata.FLASH_MODE_OFF);
 
                         flashView.setImageResource(R.drawable.ic_flash_on_white_24dp);
                         ImageViewCompat.setImageTintList(flashView, ColorStateList.valueOf(ContextCompat.getColor(context, R.color.yellow)));
@@ -721,6 +723,7 @@ public class CameraFragment extends Fragment implements ImageButton.OnClickListe
 
                     case FlashMode.FLASH_MODE_AUTO:
                         mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CameraMetadata.CONTROL_AE_MODE_OFF);
+                        mPreviewRequestBuilder.set(CaptureRequest.FLASH_MODE, CameraMetadata.FLASH_MODE_OFF);
 
                         flashView.setImageResource(R.drawable.ic_flash_off_white_24dp);
                         ImageViewCompat.setImageTintList(flashView, ColorStateList.valueOf(ContextCompat.getColor(context, R.color.white)));
@@ -728,8 +731,9 @@ public class CameraFragment extends Fragment implements ImageButton.OnClickListe
                         break;
                 }
 
+                //TODO: Fix problems here
                 mPreviewRequest = mPreviewRequestBuilder.build();
-                mPreviewSession.setRepeatingRequest(mPreviewRequestBuilder.build(), null, mBackgroundHandler);
+                mPreviewSession.setRepeatingRequest(mPreviewRequest, mCaptureCallback, mBackgroundHandler);
             }
         }
         catch (CameraAccessException e) {

@@ -61,6 +61,7 @@ dependencies {
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
     implementation 'io.github.tonnyl:whatsnew:0.1.1'
     implementation 'com.mikepenz:aboutlibraries:6.0.9'
+    implementation 'org.jetbrains:annotations:16.0.2'
 
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
     annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"

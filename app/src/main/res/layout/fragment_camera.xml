@@ -52,6 +52,7 @@
             android:background="?android:selectableItemBackground"/>
 
         <ImageButton
+            android:visibility="gone"
             android:id="@+id/config_flash"
             android:layout_width="32dp"
             android:layout_height="32dp"
